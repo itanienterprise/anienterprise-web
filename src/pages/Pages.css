@@ -1,0 +1,154 @@
+/* Fresh Page Template Styles for AniEnterprise */
+
+.page-wrapper {
+  background-color: #041026;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background ambient glow effect */
+.page-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(14, 45, 95, 0.45) 0%, rgba(4, 16, 38, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 4.5rem clamp(1.5rem, 4vw, 4rem) 6rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.page-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  padding: 0.45rem 1.15rem;
+  border-radius: 9999px;
+  margin-bottom: 1.25rem;
+}
+
+.page-badge-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.page-badge-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fbbf24;
+}
+
+.page-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.4rem, 4.5vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0 0 1.25rem;
+  line-height: 1.15;
+}
+
+.page-subtitle {
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* Fresh Canvas / Blank Slate Container */
+.page-fresh-canvas {
+  background: rgba(8, 25, 56, 0.5);
+  border: 1px dashed rgba(245, 158, 11, 0.25);
+  border-radius: 20px;
+  padding: 4rem 2rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+}
+
+.canvas-icon-box {
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fbbf24;
+  margin-bottom: 1.5rem;
+}
+
+.canvas-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.75rem;
+}
+
+.canvas-desc {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 540px;
+  margin: 0 0 1.75rem;
+  line-height: 1.6;
+}
+
+.canvas-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
+}
+
+.canvas-action-btn:hover {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
+}

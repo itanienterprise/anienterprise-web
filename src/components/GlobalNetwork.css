@@ -1,0 +1,746 @@
+/* ==========================================================================
+   Global Network / Service Area Section Styles
+   Matches Hero, About Us, Products, and Advantage sections (100vh full-screen)
+   Interactive World Map with Animated Connecting Routes to Bangladesh
+   ========================================================================== */
+
+.global-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  background-image: 
+    radial-gradient(circle at 50% 18%, rgba(241, 245, 249, 0.85) 0%, rgba(248, 250, 252, 0.4) 45%, rgba(255, 255, 255, 1) 75%),
+    radial-gradient(circle at 10% 45%, rgba(234, 88, 12, 0.025) 0%, transparent 45%),
+    radial-gradient(circle at 90% 55%, rgba(245, 158, 11, 0.025) 0%, transparent 45%);
+  color: #0f172a;
+  padding: clamp(1.2rem, 2.2vh, 1.8rem) clamp(1.5rem, 4vw, 4rem);
+  box-sizing: border-box;
+  overflow: hidden;
+  border-top: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+/* Subtle ambient backdrop glow */
+.global-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1100px;
+  height: 480px;
+  background: radial-gradient(
+    ellipse at top,
+    rgba(234, 88, 12, 0.05) 0%,
+    rgba(245, 158, 11, 0.03) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Thematic Company Vector Graphics Layer (Wheat Harvest & Maritime Port)
+   -------------------------------------------------------------------------- */
+.advantage-bg-vectors {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  user-select: none;
+}
+
+.advantage-bg-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Subtle organic micro-animations for living vector dynamics */
+.vector-contour-1 {
+  animation: contourWave 14s ease-in-out infinite alternate;
+}
+
+.vector-contour-2 {
+  animation: contourWave 18s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes contourWave {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(6px);
+  }
+}
+
+.vector-supply-flow {
+  animation: supplyDash 24s linear infinite;
+}
+
+@keyframes supplyDash {
+  from {
+    stroke-dashoffset: 48;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.global-container {
+  max-width: 1560px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.5rem, 1.4vh, 1.2rem);
+}
+
+/* --------------------------------------------------------------------------
+   Header Area: Badge, Title, Subtitle, Filter Tabs (Centered)
+   -------------------------------------------------------------------------- */
+.global-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(0.2rem, 0.8vh, 0.5rem);
+  flex-shrink: 0;
+}
+
+.global-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(254, 215, 170, 0.85);
+  padding: 0.28rem 0.95rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.06);
+  margin-bottom: 0.3rem;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.global-badge:hover {
+  transform: translateY(-1px);
+  border-color: #fdba74;
+}
+
+.global-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #ea580c;
+  box-shadow: 0 0 8px rgba(234, 88, 12, 0.65);
+  flex-shrink: 0;
+}
+
+.global-badge-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #ea580c;
+  text-transform: uppercase;
+}
+
+.global-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.85rem, 3.2vh, 2.45rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: #0f172a;
+  margin: 0.1rem 0 0.3rem;
+}
+
+.global-title-accent {
+  background: linear-gradient(135deg, #0f172a 30%, #475569 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.global-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(0.85rem, 1.35vh, 0.95rem);
+  line-height: 1.45;
+  color: #64748b;
+  max-width: 740px;
+  margin: 0 auto 0.5rem;
+}
+
+/* Region Filter Tabs */
+.global-region-tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(241, 245, 249, 0.85);
+  padding: 0.22rem 0.25rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.global-region-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.75rem;
+  border-radius: 9999px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #64748b;
+  background: transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.global-region-tab:hover {
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.global-region-tab.active {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(203, 213, 225, 0.7);
+}
+
+.region-tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  padding: 0.05rem 0.35rem;
+  border-radius: 9999px;
+  background: rgba(226, 232, 240, 0.8);
+  color: #475569;
+}
+
+.global-region-tab.active .region-tab-count {
+  background: #ffedd5;
+  color: #ea580c;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Center Stage: World Map Display Card
+   -------------------------------------------------------------------------- */
+.global-map-stage {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0.25rem 0;
+}
+
+.global-map-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-height: clamp(480px, 68vh, 640px);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 
+    0 10px 30px rgba(15, 23, 42, 0.04),
+    0 1px 3px rgba(15, 23, 42, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Subtle background map grid dots */
+.global-map-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(203, 213, 225, 0.5) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.global-map-svg {
+  width: 100%;
+  height: 100%;
+  max-height: clamp(480px, 68vh, 640px);
+  display: block;
+  user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   World Map SVG Landmass & Country Styling
+   -------------------------------------------------------------------------- */
+.world-map-landmass path {
+  fill: #cbd5e1;
+  stroke: #ffffff;
+  stroke-width: 0.65;
+  transition: fill 0.25s ease, filter 0.25s ease;
+}
+
+/* Highlighted origin countries (AniEnterprise Signature Amber-Orange) */
+.world-map-landmass #us path,
+.world-map-landmass #us,
+.world-map-landmass #ca path,
+.world-map-landmass #ca,
+.world-map-landmass #gb path,
+.world-map-landmass #gb,
+.world-map-landmass #fr path,
+.world-map-landmass #fr,
+.world-map-landmass #th path,
+.world-map-landmass #th,
+.world-map-landmass #vn path,
+.world-map-landmass #vn,
+.world-map-landmass #cn path,
+.world-map-landmass #cn,
+.world-map-landmass #au path,
+.world-map-landmass #au,
+.world-map-landmass #br path,
+.world-map-landmass #br,
+.world-map-landmass #ar path,
+.world-map-landmass #ar,
+.world-map-landmass #in path,
+.world-map-landmass #in,
+.world-map-landmass #ae path,
+.world-map-landmass #ae {
+  fill: #ea580c !important;
+  cursor: pointer;
+  filter: drop-shadow(0 1px 2px rgba(234, 88, 12, 0.28));
+}
+
+.world-map-landmass #us:hover path,
+.world-map-landmass #ca:hover path,
+.world-map-landmass #gb:hover path,
+.world-map-landmass #fr:hover path,
+.world-map-landmass #th:hover path,
+.world-map-landmass #vn:hover path,
+.world-map-landmass #cn:hover path,
+.world-map-landmass #au:hover path,
+.world-map-landmass #br:hover path,
+.world-map-landmass #ar:hover path,
+.world-map-landmass #in:hover path,
+.world-map-landmass #ae:hover path {
+  fill: #c2410c !important;
+}
+
+/* Bangladesh Destination Country: Emerald Green with radiant outline */
+.world-map-landmass #bd,
+.world-map-landmass #bd path {
+  fill: #059669 !important;
+  stroke: #10b981 !important;
+  stroke-width: 1.5 !important;
+  filter: drop-shadow(0 0 6px rgba(5, 150, 105, 0.6));
+}
+
+/* --------------------------------------------------------------------------
+   Connecting Route Lines from Countries to Bangladesh
+   -------------------------------------------------------------------------- */
+.route-flow-line {
+  animation: routeDashFlow 1.6s linear infinite;
+  transition: stroke-width 0.25s ease, stroke 0.25s ease, filter 0.25s ease;
+}
+
+@keyframes routeDashFlow {
+  from {
+    stroke-dashoffset: 16;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.route-group.hidden {
+  opacity: 0.12;
+  transition: opacity 0.3s ease;
+}
+
+.route-group.dimmed {
+  opacity: 0.25;
+  transition: opacity 0.3s ease;
+}
+
+.route-group.highlighted {
+  opacity: 1;
+  z-index: 10;
+}
+
+.route-particle-core {
+  filter: drop-shadow(0 0 4px #ea580c);
+}
+
+.route-particle-halo {
+  filter: blur(1px);
+}
+
+/* --------------------------------------------------------------------------
+   Country Pin Elements & Interactions
+   -------------------------------------------------------------------------- */
+.country-pin-group {
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s ease, opacity 0.25s ease;
+}
+
+.country-pin-group:hover,
+.country-pin-group.active {
+  transform: translateY(-2px);
+}
+
+.country-pin-group.hidden {
+  opacity: 0.2;
+}
+
+.pin-card-bg,
+.pin-compact-bg {
+  transition: stroke 0.2s ease, fill 0.2s ease;
+}
+
+.country-pin-group:hover .pin-card-bg,
+.country-pin-group.active .pin-card-bg,
+.country-pin-group:hover .pin-compact-bg,
+.country-pin-group.active .pin-compact-bg {
+  stroke: #ea580c;
+  stroke-width: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Bangladesh Central Hub Beacon Pulse Rings
+   -------------------------------------------------------------------------- */
+.beacon-pulse-ring {
+  fill: none;
+  stroke: #10b981;
+  stroke-width: 1.6;
+  transform-origin: 0 0;
+}
+
+.beacon-pulse-ring.ring-1 {
+  animation: sonarPing 2.8s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+.beacon-pulse-ring.ring-2 {
+  animation: sonarPing 2.8s cubic-bezier(0.2, 0.8, 0.2, 1) infinite 0.9s;
+}
+
+.beacon-pulse-ring.ring-3 {
+  animation: sonarPing 2.8s cubic-bezier(0.2, 0.8, 0.2, 1) infinite 1.8s;
+}
+
+@keyframes sonarPing {
+  0% {
+    r: 4;
+    opacity: 0.95;
+    stroke-width: 2;
+  }
+  75% {
+    opacity: 0.3;
+  }
+  100% {
+    r: 26;
+    opacity: 0;
+    stroke-width: 0.5;
+  }
+}
+
+.beacon-core-node {
+  animation: corePulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes corePulse {
+  from {
+    transform: scale(0.95);
+    filter: drop-shadow(0 0 3px rgba(16, 185, 129, 0.8));
+  }
+  to {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 9px rgba(16, 185, 129, 1));
+  }
+}
+
+.bangladesh-hub-badge {
+  transition: transform 0.25s ease;
+}
+
+.bangladesh-hub-group:hover .bangladesh-hub-badge {
+  transform: translate(-46px, 16px) scale(1.04);
+}
+
+/* --------------------------------------------------------------------------
+   Floating Detail Flyout Box
+   -------------------------------------------------------------------------- */
+.global-route-flyout {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 290px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 16px;
+  padding: 1.1rem 1.2rem;
+  box-shadow: 
+    0 20px 40px rgba(15, 23, 42, 0.12),
+    0 1px 3px rgba(15, 23, 42, 0.05);
+  z-index: 20;
+  animation: flyoutSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes flyoutSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.flyout-close-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(241, 245, 249, 0.9);
+  border-radius: 50%;
+  font-size: 0.75rem;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.flyout-close-btn:hover {
+  background: #ffedd5;
+  color: #ea580c;
+}
+
+.flyout-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(241, 245, 249, 0.9);
+}
+
+.flyout-flag-wrap {
+  flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+}
+
+.flyout-region-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #ea580c;
+  margin-bottom: 0.15rem;
+}
+
+.flyout-country-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.flyout-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.flyout-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.flyout-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.flyout-value {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.35;
+}
+
+.flyout-value.highlight {
+  color: #ea580c;
+}
+
+.flyout-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  background: #f8fafc;
+  padding: 0.55rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid rgba(226, 232, 240, 0.7);
+  margin-top: 0.2rem;
+}
+
+.flyout-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.stat-value {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 0.1rem;
+}
+
+.flyout-dest-alert {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #047857;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  margin-top: 0.2rem;
+}
+
+.dest-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adaptations (Matching Advantage.css)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px), (max-height: 720px) {
+  .global-section {
+    height: auto;
+    min-height: 100vh;
+    padding: clamp(3rem, 6vh, 4rem) clamp(1.25rem, 3.5vw, 2.5rem);
+    overflow: visible;
+  }
+
+  .global-container {
+    height: auto;
+    gap: 1.5rem;
+  }
+
+  .global-map-stage {
+    min-height: 480px;
+  }
+
+  .global-map-card {
+    max-height: none;
+    height: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .global-title {
+    font-size: clamp(1.75rem, 6.5vw, 2.2rem);
+  }
+
+  .global-subtitle {
+    font-size: 0.85rem;
+    padding: 0 0.25rem;
+  }
+
+  .global-region-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 12px;
+  }
+
+  .global-map-stage {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .global-map-card {
+    height: 420px;
+    width: 100%;
+  }
+
+  .global-route-flyout {
+    position: static;
+    width: 100%;
+    margin-top: 1rem;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+  }
+}
+
+@media (max-width: 640px) {
+  .global-section {
+    padding: 3rem 1rem 3.5rem;
+  }
+
+  .global-map-card {
+    height: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .global-map-card {
+    height: 280px;
+  }
+
+  .global-region-tab {
+    padding: 0.22rem 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .global-route-flyout {
+    padding: 0.9rem;
+  }
+}

@@ -1,0 +1,183 @@
+/* Tour Slider Glassmorphism Container */
+.tour-slider-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 580px;
+  width: 100%;
+}
+
+.tour-slider-main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.tour-cards-viewport {
+  overflow: hidden;
+  width: 100%;
+  padding: 6px 2px;
+  border-radius: 24px;
+}
+
+.tour-cards-track {
+  display: flex;
+  gap: 14px;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+/* Individual Glassmorphic Tour Card */
+.tour-card {
+  flex: 0 0 calc((100% - 28px) / 3);
+  min-width: 155px;
+  background: rgba(10, 30, 62, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(147, 197, 253, 0.3);
+  border-radius: 20px;
+  padding: 8px;
+  box-shadow: 0 8px 30px rgba(2, 10, 28, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.tour-card:hover {
+  background: rgba(18, 48, 96, 0.55);
+  border-color: rgba(147, 197, 253, 0.65);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(2, 10, 28, 0.45);
+}
+
+.tour-card.active {
+  border-color: rgba(147, 197, 253, 0.95);
+  background: rgba(22, 58, 116, 0.6);
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.45), 0 10px 32px rgba(2, 10, 28, 0.45);
+}
+
+.tour-card-img-wrap {
+  width: 100%;
+  height: 115px;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  background: #1e293b;
+}
+
+.tour-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.tour-card:hover .tour-card-img {
+  transform: scale(1.08);
+}
+
+/* Next / Prev Navigation Arrow Buttons */
+.slider-arrow-btn {
+  position: absolute;
+  right: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.25s ease;
+  border: none;
+}
+
+.slider-arrow-btn:hover {
+  background: #f8fafc;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+.slider-arrow-btn.prev {
+  left: -16px;
+  right: auto;
+}
+
+/* Pagination Dots */
+.slider-dots-container {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.slider-dot {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slider-dot.active {
+  width: 22px;
+  border-radius: 9999px;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+.slider-dot:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .tour-slider-wrapper {
+    max-width: 520px;
+  }
+  .tour-card {
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tour-slider-wrapper {
+    max-width: 100%;
+    margin-top: 0.75rem;
+  }
+  .tour-card {
+    flex: 0 0 calc((100% - 14px) / 2);
+    min-width: 130px;
+  }
+  .slider-arrow-btn {
+    right: -4px;
+    width: 32px;
+    height: 32px;
+  }
+  .tour-card-img-wrap {
+    height: 105px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tour-card {
+    flex: 0 0 100%;
+    min-width: 100%;
+  }
+  .slider-arrow-btn {
+    right: 0;
+  }
+  .tour-card-img-wrap {
+    height: 120px;
+  }
+}

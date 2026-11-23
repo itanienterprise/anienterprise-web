@@ -1,0 +1,611 @@
+/* ==========================================================================
+   Partners & Client Feedback Section Styles
+   Aligned with AniEnterprise Website Theme:
+   - Soft reduced-opacity skyline background photo
+   - Signature pill badge with pulsing orange dot
+   - Signature Outfit font with rich amber/gold gradient accent
+   - Floating wide pure-white card with 4 partner logos
+   - Continuous, non-stop smooth right-to-left Client Feedback stream
+   ========================================================================== */
+
+:root {
+  --feedback-gap: 1.5rem;
+}
+
+.partners-skyline-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #ffffff;
+  background-image: 
+    radial-gradient(circle at 50% 18%, rgba(241, 245, 249, 0.85) 0%, rgba(248, 250, 252, 0.45) 45%, rgba(255, 255, 255, 1) 75%),
+    radial-gradient(circle at 10% 45%, rgba(234, 88, 12, 0.025) 0%, transparent 45%),
+    radial-gradient(circle at 90% 55%, rgba(245, 158, 11, 0.025) 0%, transparent 45%);
+  border-top: 1px solid rgba(226, 232, 240, 0.7);
+  padding: clamp(1.5rem, 3.5vh, 4rem) clamp(1.5rem, 4vw, 3.5rem);
+}
+
+/* Subtle top ambient glow */
+.partners-skyline-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1100px;
+  height: 480px;
+  background: radial-gradient(
+    ellipse at top,
+    rgba(234, 88, 12, 0.05) 0%,
+    rgba(245, 158, 11, 0.03) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Reduced-Opacity Skyline Photo Background
+   -------------------------------------------------------------------------- */
+.partners-bg-skyline {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/partner-bg-skyline.jpg');
+  background-size: cover;
+  background-position: center 82%;
+  background-repeat: no-repeat;
+  opacity: 0.22;
+  filter: saturate(0.85) contrast(1.05);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Soft daylight blending overlay */
+.partners-skyline-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.75) 0%,
+    rgba(255, 255, 255, 0.4) 35%,
+    rgba(255, 255, 255, 0.2) 65%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Main Container
+   -------------------------------------------------------------------------- */
+.partners-skyline-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.8rem, 3vh, 2.6rem);
+}
+
+/* --------------------------------------------------------------------------
+   Header Area: Signature Pill Badge + Gradient Accent Title
+   -------------------------------------------------------------------------- */
+.partners-skyline-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.partners-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(234, 88, 12, 0.3);
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.08);
+  padding: 0.32rem 1.1rem;
+  border-radius: 9999px;
+  margin-bottom: clamp(0.45rem, 0.9vh, 0.75rem);
+}
+
+.partners-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #ea580c;
+  box-shadow: 0 0 10px #ea580c;
+  animation: partnersDotPulse 2s ease-in-out infinite;
+}
+
+@keyframes partnersDotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.7;
+  }
+}
+
+.partners-badge-text {
+  font-size: clamp(0.7rem, 0.85vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #ea580c;
+  text-transform: uppercase;
+}
+
+.partners-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.85rem, 3.2vw, 2.85rem);
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.18;
+  margin-bottom: clamp(0.4rem, 0.8vh, 0.7rem);
+}
+
+.partners-title-accent {
+  background: linear-gradient(135deg, #ea580c 0%, #d97706 60%, #b45309 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.partners-subtitle {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(0.85rem, 1vw, 0.98rem);
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   Floating Pure-White Card with Partner Logos (Reference Layout)
+   -------------------------------------------------------------------------- */
+.partners-white-card {
+  width: 100%;
+  max-width: 1360px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: clamp(1.6rem, 3vh, 2.5rem) clamp(1.5rem, 3.5vw, 3.5rem);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow:
+    0 20px 50px -15px rgba(15, 23, 42, 0.09),
+    0 4px 16px rgba(15, 23, 42, 0.04),
+    0 0 0 1px rgba(234, 88, 12, 0.06);
+  box-sizing: border-box;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.partners-white-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(234, 88, 12, 0.32);
+  box-shadow:
+    0 30px 70px -18px rgba(234, 88, 12, 0.12),
+    0 6px 22px rgba(15, 23, 42, 0.05),
+    0 0 0 1px rgba(234, 88, 12, 0.2);
+}
+
+.partners-logos-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: clamp(1.2rem, 2.5vw, 3rem);
+}
+
+/* Individual Logo Column */
+.partner-logo-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0.6rem 0.8rem;
+  border-radius: 12px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.partner-logo-wrapper {
+  height: clamp(65px, 8.5vh, 85px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.partner-logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), filter 0.32s ease;
+  filter: contrast(0.98);
+}
+
+/* Optical Aspect Ratio Sizing */
+.partner-img-maruti {
+  max-height: 78px;
+  max-width: 110px;
+}
+
+.partner-img-summit {
+  max-height: 54px;
+  max-width: 210px;
+}
+
+.partner-img-saa {
+  max-height: 72px;
+  max-width: 95px;
+}
+
+.partner-img-tufaah {
+  max-height: 64px;
+  max-width: 220px;
+}
+
+/* Logo Hover & Active States */
+.partner-logo-col:hover .partner-logo-img,
+.partner-logo-col.active .partner-logo-img {
+  transform: scale(1.09);
+  filter: contrast(1.05) drop-shadow(0 4px 12px rgba(234, 88, 12, 0.15));
+}
+
+.partner-logo-col:hover,
+.partner-logo-col.active {
+  background: rgba(255, 247, 237, 0.6);
+}
+
+/* Micro Identity Pill (Reveals on Hover) */
+.partner-micro-info {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.partner-logo-col:hover .partner-micro-info,
+.partner-logo-col.active .partner-micro-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.partner-micro-name {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.2;
+}
+
+.partner-micro-cat {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #ea580c;
+  letter-spacing: 0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   Client Feedback: Continuous Non-Stop Right-to-Left Marquee Stream
+   -------------------------------------------------------------------------- */
+/* trustedby: Client Testimonials & "Trusted by Leading..." block - Hidden by request. To unhide, remove this rule or set display: flex */
+.trustedby {
+  display: none !important;
+}
+
+.partners-feedback-block {
+  width: 100%;
+  max-width: 1360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 2vh, 1.5rem);
+  margin-top: clamp(0.5rem, 1vh, 1rem);
+}
+
+.feedback-section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.feedback-section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.3rem, 2vw, 1.75rem);
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.feedback-title-accent {
+  background: linear-gradient(135deg, #ea580c 0%, #d97706 60%, #b45309 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   Continuous Marquee Viewport & Animated Infinite Track
+   -------------------------------------------------------------------------- */
+.feedback-marquee-viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 0.6rem 0 1rem 0;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 3%,
+    black 97%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 3%,
+    black 97%,
+    transparent 100%
+  );
+}
+
+.feedback-marquee-track {
+  display: flex;
+  gap: var(--feedback-gap, 1.5rem);
+  width: max-content;
+  animation: feedbackContinuousScroll 38s linear infinite;
+  will-change: transform;
+}
+
+.feedback-marquee-track.paused,
+.feedback-marquee-viewport:hover .feedback-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes feedbackContinuousScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - (var(--feedback-gap, 1.5rem) / 2)));
+  }
+}
+
+/* Feedback Card Styling inside Marquee */
+.feedback-card {
+  width: clamp(340px, 28vw, 410px);
+  flex-shrink: 0;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 16px;
+  padding: clamp(1.2rem, 2vh, 1.6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 25px -8px rgba(15, 23, 42, 0.06);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feedback-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ea580c, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feedback-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(234, 88, 12, 0.35);
+  box-shadow:
+    0 20px 40px -12px rgba(234, 88, 12, 0.12),
+    0 4px 12px rgba(15, 23, 42, 0.04),
+    0 0 0 1px rgba(234, 88, 12, 0.2);
+}
+
+.feedback-card:hover::before {
+  opacity: 1;
+}
+
+.feedback-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.feedback-stars {
+  color: #f59e0b;
+  font-size: 1.05rem;
+  letter-spacing: 2px;
+}
+
+.feedback-quote {
+  font-size: clamp(0.78rem, 0.9vw, 0.85rem);
+  color: #334155;
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0 0 clamp(0.9rem, 1.5vh, 1.25rem) 0;
+  flex: 1;
+}
+
+.feedback-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.feedback-avatar-img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+  flex-shrink: 0;
+}
+
+.feedback-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-author-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.feedback-author-role {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #ea580c;
+  line-height: 1.2;
+}
+
+.feedback-author-company {
+  font-size: 0.7rem;
+  color: #64748b;
+  line-height: 1.2;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adaptations
+   -------------------------------------------------------------------------- */
+@media (max-width: 1150px) {
+  :root {
+    --feedback-gap: 1.25rem;
+  }
+
+  .partners-skyline-section {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .partners-white-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .partners-logos-row {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .partner-logo-col {
+    flex: 1 1 calc(50% - 1.5rem);
+  }
+
+  .partner-micro-info {
+    opacity: 1;
+    transform: none;
+  }
+
+  .feedback-card {
+    width: 330px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --feedback-gap: 1rem;
+  }
+
+  .partners-skyline-section {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    max-height: none;
+    overflow: visible;
+    padding: 3.5rem 1.25rem 4rem;
+  }
+
+  .partners-skyline-container {
+    gap: 1.75rem;
+  }
+
+  .partners-title {
+    font-size: 1.75rem;
+  }
+
+  .partners-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .partners-white-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .partners-logos-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  .partner-logo-col {
+    flex: none;
+    width: 100%;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .partner-logo-wrapper {
+    height: 60px;
+  }
+
+  .partner-micro-info {
+    opacity: 1;
+    transform: none;
+    margin-top: 0.35rem;
+  }
+
+  .feedback-card {
+    width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .partners-logos-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

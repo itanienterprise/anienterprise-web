@@ -1,0 +1,566 @@
+/* ==========================================================================
+   The AniEnterprise Advantage Section Styles
+   Matches Hero, About Us, and Products sections (100vh full-screen)
+   Fully Center-Aligned Cards with Signature Orange Hover Interactions
+   ========================================================================== */
+
+.advantage-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  background-image: 
+    radial-gradient(circle at 50% 18%, rgba(241, 245, 249, 0.85) 0%, rgba(248, 250, 252, 0.4) 45%, rgba(255, 255, 255, 1) 75%),
+    radial-gradient(circle at 10% 45%, rgba(234, 88, 12, 0.025) 0%, transparent 45%),
+    radial-gradient(circle at 90% 55%, rgba(245, 158, 11, 0.025) 0%, transparent 45%);
+  color: #0f172a;
+  padding: clamp(1.2rem, 2.2vh, 1.8rem) clamp(1.5rem, 4vw, 4rem);
+  box-sizing: border-box;
+  overflow: hidden;
+  border-top: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+/* Subtle ambient backdrop glow matching site theme */
+.advantage-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1100px;
+  height: 480px;
+  background: radial-gradient(
+    ellipse at top,
+    rgba(234, 88, 12, 0.05) 0%,
+    rgba(245, 158, 11, 0.03) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+
+.advantage-container {
+  max-width: 1560px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.75rem, 2vh, 1.8rem);
+}
+
+/* --------------------------------------------------------------------------
+   Header Area: Badge, Title, Subtitle (Centered)
+   -------------------------------------------------------------------------- */
+.advantage-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(0.25rem, 0.7vh, 0.6rem);
+  flex-shrink: 0;
+}
+
+.advantage-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  padding: 0.28rem 0.95rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+  margin-bottom: 0.35rem;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.advantage-badge:hover {
+  transform: translateY(-1px);
+  border-color: #cbd5e1;
+}
+
+.advantage-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #ea580c;
+  box-shadow: 0 0 8px rgba(234, 88, 12, 0.65);
+  flex-shrink: 0;
+}
+
+.advantage-badge-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #334155;
+  letter-spacing: 0.02em;
+}
+
+.advantage-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.75rem, 2.5vw, 2.35rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.advantage-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(0.84rem, 1vw, 0.94rem);
+  color: #64748b;
+  line-height: 1.45;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Center Cards Arena: 4 Cards in Perfect Center Alignment
+   -------------------------------------------------------------------------- */
+.advantage-cards-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+  margin: clamp(0.3rem, 0.9vh, 0.8rem) 0;
+}
+
+.advantage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 1.5vw, 1.6rem);
+  width: 100%;
+  height: 100%;
+  max-height: clamp(440px, 63vh, 560px);
+}
+
+.advantage-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+  overflow: hidden;
+}
+
+/* Top Accent Line on hover - Vibrant Orange Gradient */
+.advantage-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, #f59e0b 0%, #ea580c 50%, #f97316 100%);
+  opacity: 0;
+  transform: scaleX(0.7);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  z-index: 5;
+}
+
+/* Ambient Card Glow on hover - Warm Orange */
+.advantage-card-glow {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.16) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 1;
+}
+
+/* Card Hover Elevation with warm orange outline & shadow */
+.advantage-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(234, 88, 12, 0.45);
+  box-shadow: 0 24px 44px -10px rgba(234, 88, 12, 0.16),
+              0 8px 18px -4px rgba(15, 23, 42, 0.05);
+}
+
+.advantage-card:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.advantage-card:hover .advantage-card-glow {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Card Media Banner (Top) with Centered Category Tag
+   -------------------------------------------------------------------------- */
+.advantage-card-media {
+  position: relative;
+  width: 100%;
+  height: clamp(135px, 19vh, 180px);
+  overflow: hidden;
+  background-color: #0f172a;
+  flex-shrink: 0;
+}
+
+.advantage-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.advantage-card:hover .advantage-card-img {
+  transform: scale(1.08);
+}
+
+.advantage-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.2) 0%,
+    rgba(15, 23, 42, 0.25) 45%,
+    rgba(15, 23, 42, 0.6) 100%
+  );
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.advantage-card:hover .advantage-media-overlay {
+  opacity: 0.85;
+}
+
+/* Centered Top Tag Badge - Lights up Orange on Hover */
+.advantage-media-tag {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.68);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.advantage-card:hover .advantage-media-tag {
+  background: rgba(234, 88, 12, 0.92);
+  border-color: rgba(254, 215, 170, 0.8);
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   Card Body: Fully Centered Alignment
+   -------------------------------------------------------------------------- */
+.advantage-card-body {
+  padding: 0 clamp(1.15rem, 1.5vw, 1.45rem) clamp(0.95rem, 1.6vh, 1.25rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Centered Floating Circular Icon Pill - Turns Orange on Hover */
+.advantage-body-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  margin-top: -22px;
+  margin-bottom: clamp(0.5rem, 1vh, 0.75rem);
+  position: relative;
+  z-index: 3;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+/* On Card Hover: Circular Icon Pill Turns Vibrant Orange */
+.advantage-card:hover .advantage-body-icon-box {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #d97706 100%);
+  color: #ffffff;
+  border-color: #ea580c;
+  transform: scale(1.12);
+  box-shadow: 0 8px 22px -2px rgba(234, 88, 12, 0.5), 0 0 16px rgba(249, 115, 22, 0.35);
+}
+
+.advantage-card-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.advantage-card:hover .advantage-card-icon {
+  transform: scale(1.05);
+}
+
+/* Centered Title - Transitions to Orange on Hover */
+.advantage-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.06rem, 1.2vw, 1.18rem);
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  margin-bottom: 0.4rem;
+  text-align: center;
+  width: 100%;
+  transition: color 0.25s ease;
+}
+
+.advantage-card:hover .advantage-card-title {
+  color: #ea580c;
+}
+
+/* Centered Description */
+.advantage-card-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(0.8rem, 0.88vw, 0.86rem);
+  color: #64748b;
+  line-height: 1.54;
+  margin: 0 0 clamp(0.6rem, 1vh, 0.85rem) 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* Centered Bottom Feature Chip - Warm Orange on Hover */
+.advantage-card-feature {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.45rem;
+  padding: 0.42rem 0.75rem;
+  border-radius: 9px;
+  background: #f8fafc;
+  border: 1px solid #eef2f6;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #334155;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+.advantage-feature-bullet {
+  color: #ea580c;
+  font-size: 0.68rem;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.advantage-feature-text {
+  text-align: center;
+  transition: color 0.25s ease;
+}
+
+.advantage-card:hover .advantage-card-feature {
+  background: #fff7ed;
+  border-color: #fed7aa;
+  box-shadow: 0 2px 10px rgba(234, 88, 12, 0.12);
+}
+
+.advantage-card:hover .advantage-feature-text {
+  color: #9a3412;
+}
+
+.advantage-card:hover .advantage-feature-bullet {
+  color: #ea580c;
+  transform: scale(1.2);
+}
+
+/* --------------------------------------------------------------------------
+   Bottom Row: Centered Alignment
+   -------------------------------------------------------------------------- */
+.advantage-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: clamp(0.35rem, 0.8vh, 0.7rem);
+  flex-shrink: 0;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.advantage-bottom-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 9999px;
+  padding: 0.36rem 1.05rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+  text-align: center;
+}
+
+.advantage-bottom-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 0.36rem 1.05rem;
+  border-radius: 9999px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  text-align: center;
+}
+
+.advantage-bottom-link:hover {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.35);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adaptations
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px), (max-height: 720px) {
+  .advantage-section {
+    height: auto;
+    min-height: 100vh;
+    padding: clamp(3rem, 6vh, 4rem) clamp(1.25rem, 3.5vw, 2.5rem);
+    overflow: visible;
+  }
+
+  .advantage-container {
+    height: auto;
+    gap: 1.8rem;
+  }
+
+  .advantage-cards-wrapper {
+    margin: 1rem 0;
+  }
+
+  .advantage-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-height: none;
+    height: auto;
+  }
+
+  .advantage-card {
+    height: auto;
+    min-height: 360px;
+  }
+
+  .advantage-card-media {
+    height: 160px;
+  }
+
+  .advantage-bottom-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .advantage-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .advantage-card {
+    min-height: auto;
+  }
+
+  .advantage-card-media {
+    height: 175px;
+  }
+
+  .advantage-bottom-pill {
+    font-size: 0.76rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .advantage-section {
+    padding: 3rem 1rem 3.5rem;
+  }
+
+  .advantage-title {
+    font-size: clamp(1.6rem, 6.5vw, 2rem);
+  }
+
+  .advantage-subtitle {
+    font-size: 0.84rem;
+    padding: 0 0.25rem;
+  }
+
+  .advantage-card-body {
+    padding: 0 1rem 1rem;
+  }
+
+  .advantage-card-title {
+    font-size: 1.05rem;
+  }
+
+  .advantage-card-desc {
+    font-size: 0.8rem;
+  }
+}

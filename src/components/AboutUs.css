@@ -1,0 +1,680 @@
+/* About Us Section Styles */
+.about-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f8fafc;
+  background-image: url('/images/about-bg-panoramic.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  color: #0f172a;
+  padding: clamp(1.4rem, 2.6vh, 2.2rem) clamp(1.5rem, 4vw, 4rem);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Subtle soft ambient bottom fade */
+.about-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      transparent 0%,
+      transparent 85%,
+      rgba(255, 255, 255, 0.5) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.about-container {
+  max-width: 1560px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Header Area: Pill Badge, Main Title, Subtitle */
+.about-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(0.4rem, 1.2vh, 0.9rem);
+  flex-shrink: 0;
+}
+
+.about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  padding: 0.35rem 1.05rem;
+  border-radius: 9999px;
+  margin-bottom: 0.55rem;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-badge:hover {
+  transform: translateY(-1px);
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
+}
+
+.about-badge-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  display: block;
+}
+
+.about-badge-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #374151;
+  letter-spacing: 0.01em;
+}
+
+.about-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.85rem, 2.7vw, 2.45rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0.35rem;
+}
+
+.about-title-dark {
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.about-title-orange {
+  font-weight: 800;
+  color: #ea580c;
+}
+
+.about-title-light {
+  font-weight: 700;
+  color: #64748b;
+}
+
+.about-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(0.86rem, 1.05vw, 0.96rem);
+  color: #475569;
+  line-height: 1.5;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Two-column Main Layout: Content on Left, Visual Logo on Right */
+.about-main-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: center;
+  flex: 1;
+}
+
+.about-content-column {
+  order: 1;
+}
+
+.about-visual-column {
+  order: 2;
+}
+
+/* Left Column: Visual Column Area */
+.about-visual-column {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: auto;
+}
+
+/* Standalone Pure Logo - Floating freely without any box */
+.about-standalone-logo-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+/* Ambient Radial Golden Glow behind Logo */
+.about-standalone-logo-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      rgba(245, 158, 11, 0.16) 0%,
+      rgba(245, 158, 11, 0.04) 55%,
+      transparent 75%);
+  filter: blur(28px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-standalone-logo-img {
+  position: relative;
+  z-index: 1;
+  width: min(320px, 85%);
+  max-height: 320px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 18px 36px rgba(217, 119, 6, 0.26));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+
+.about-standalone-logo-wrap:hover .about-standalone-logo-img {
+  transform: translateY(-4px) scale(1.04);
+  filter: drop-shadow(0 24px 46px rgba(245, 158, 11, 0.4));
+}
+
+/* Left Column: Silhouette Cutout Visual Container (Enlarged prominent image card) */
+.about-photo-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  max-height: 380px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 24px 45px rgba(15, 23, 42, 0.12));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+
+.about-photo-wrapper:hover {
+  transform: translateY(-4px);
+  filter: drop-shadow(0 30px 55px rgba(15, 23, 42, 0.18));
+}
+
+.about-photo-svg {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  max-height: 380px;
+  display: block;
+  object-fit: contain;
+}
+
+/* Right Column: Dynamic Panel & Glassmorphic Tabs */
+.about-content-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-display-area {
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 2x2 Stats Grid View with Glassmorphism */
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.15rem;
+}
+
+.about-stat-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  box-shadow:
+    0 10px 25px -5px rgba(15, 23, 42, 0.04),
+    0 2px 6px rgba(15, 23, 42, 0.02),
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.95);
+  border-radius: 18px;
+  padding: clamp(0.95rem, 1.4vw, 1.25rem) 1.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.65rem;
+  box-sizing: border-box;
+  transition:
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.about-stat-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(217, 163, 45, 0.4);
+  box-shadow:
+    0 16px 32px -6px rgba(15, 23, 42, 0.08),
+    0 4px 12px rgba(15, 23, 42, 0.03);
+}
+
+.about-stat-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.about-stat-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.about-stat-icon-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b45309;
+  transition: transform 0.25s ease;
+}
+
+/* Subtle glow circles behind icons matching mockup */
+.about-stat-icon-box::before {
+  content: '';
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0) 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.about-stat-card:nth-child(2) .about-stat-icon-box {
+  color: #92400e;
+}
+
+.about-stat-card:nth-child(2) .about-stat-icon-box::before {
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.2) 0%, rgba(217, 119, 6, 0) 70%);
+}
+
+.about-stat-card:nth-child(3) .about-stat-icon-box {
+  color: #b45309;
+}
+
+.about-stat-card:nth-child(3) .about-stat-icon-box::before {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0) 70%);
+}
+
+.about-stat-card:nth-child(4) .about-stat-icon-box {
+  color: #0284c7;
+}
+
+.about-stat-card:nth-child(4) .about-stat-icon-box::before {
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.22) 0%, rgba(2, 132, 199, 0) 70%);
+}
+
+.about-stat-card:hover .about-stat-icon-box {
+  transform: scale(1.1);
+}
+
+.about-stat-trend {
+  display: flex;
+  align-items: center;
+  opacity: 0.85;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.about-stat-card:hover .about-stat-trend {
+  transform: translateX(2px) translateY(-1px);
+  opacity: 1;
+}
+
+.about-stat-number {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.65rem, 2.1vw, 2.05rem);
+  font-weight: 800;
+  color: #111827;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.about-stat-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  color: #475569;
+  font-weight: 500;
+  line-height: 1.38;
+  margin: 0;
+}
+
+/* Statement Card for Mission & Vision View - Clean natural presentation, absolutely no scroll */
+.about-statement-card {
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 18px;
+  padding: 1.15rem 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow:
+    0 14px 32px -6px rgba(15, 23, 42, 0.06),
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.95);
+}
+
+.statement-header {
+  margin-bottom: 0.25rem;
+  flex-shrink: 0;
+}
+
+.statement-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  padding: 0.22rem 0.75rem;
+  border-radius: 9999px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #b45309;
+  margin-bottom: 0.4rem;
+}
+
+.statement-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.2rem, 1.6vw, 1.38rem);
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.statement-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0.5rem 0 0.8rem 0;
+}
+
+.statement-desc-direct {
+  font-size: clamp(0.78rem, 0.88vw, 0.85rem);
+  color: #334155;
+  line-height: 1.48;
+  margin: 0.5rem 0 0 0;
+}
+
+.statement-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.statement-pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #334155;
+  line-height: 1.45;
+}
+
+.pillar-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #f59e0b;
+  margin-top: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.45);
+}
+
+.pillar-text strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* Actions Row: Glassmorphic Tab Buttons centered across the entire page */
+.about-actions-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: clamp(0.5rem, 1.2vh, 1rem);
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 5;
+  flex-shrink: 0;
+}
+
+.about-glass-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.38) 100%
+  );
+  backdrop-filter: blur(18px) saturate(190%);
+  -webkit-backdrop-filter: blur(18px) saturate(190%);
+  color: #1e293b;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.68rem 1.65rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow:
+    0 10px 25px -4px rgba(15, 23, 42, 0.06),
+    0 2px 6px rgba(15, 23, 42, 0.03),
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.95),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.about-glass-btn svg {
+  color: #475569;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.about-glass-btn:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.58) 100%
+  );
+  border-color: rgba(245, 158, 11, 0.45);
+  color: #0f172a;
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 30px -4px rgba(217, 119, 6, 0.14),
+    0 4px 10px rgba(15, 23, 42, 0.04),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
+}
+
+.about-glass-btn:hover svg {
+  color: #b45309;
+  transform: scale(1.1);
+}
+
+/* Active State: Luxurious Golden Amber Glassmorphism */
+.about-glass-btn.active {
+  background: linear-gradient(
+    135deg,
+    rgba(245, 158, 11, 0.92) 0%,
+    rgba(217, 119, 6, 0.95) 100%
+  );
+  backdrop-filter: blur(20px) saturate(200%);
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 14px 30px -4px rgba(217, 119, 6, 0.38),
+    0 4px 10px rgba(217, 119, 6, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.65),
+    0 0 20px rgba(245, 158, 11, 0.25);
+}
+
+.about-glass-btn.active svg {
+  color: #ffffff;
+}
+
+.about-glass-btn.active:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(251, 191, 36, 0.96) 0%,
+    rgba(217, 119, 6, 0.98) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.65);
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 36px -4px rgba(217, 119, 6, 0.48),
+    0 6px 14px rgba(217, 119, 6, 0.28),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8),
+    0 0 26px rgba(245, 158, 11, 0.35);
+}
+
+/* Tab Smooth Fade In Animation */
+.tab-fade-in {
+  animation: tabFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes tabFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Adaptations */
+@media (max-width: 992px) {
+  .about-section {
+    height: auto;
+    min-height: 100vh;
+    padding: 3.5rem 1.5rem 4rem;
+    overflow: visible;
+  }
+
+  .about-container {
+    height: auto;
+    gap: 2rem;
+  }
+
+  .about-main-layout {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .about-visual-column {
+    max-width: 100%;
+    order: 1;
+  }
+
+  .about-content-column {
+    order: 2;
+  }
+
+  .about-standalone-logo-img {
+    width: min(220px, 65%);
+    max-height: 220px;
+  }
+
+  .about-standalone-logo-glow {
+    width: 240px;
+    height: 240px;
+  }
+
+  .about-photo-wrapper {
+    max-width: 440px;
+    max-height: 320px;
+  }
+
+  .about-actions-row {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 3.5rem 1.15rem 4rem;
+  }
+
+  .about-title {
+    font-size: clamp(1.75rem, 6.5vw, 2.2rem);
+  }
+
+  .about-subtitle {
+    font-size: 0.88rem;
+    padding: 0 0.25rem;
+  }
+
+  .about-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .about-stat-card {
+    padding: 1.15rem 1.25rem;
+  }
+
+  .about-statement-card {
+    padding: 1.25rem;
+  }
+
+  .statement-title {
+    font-size: 1.15rem;
+  }
+
+  .statement-desc-direct {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .about-actions-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .about-glass-btn {
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+  }
+}

@@ -1,0 +1,570 @@
+/* Hero Container & Background */
+.hero-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background-color: #041026;
+  color: #ffffff;
+}
+
+.hero-bg-slider-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero-bg-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  filter: brightness(0.95) contrast(1.08) saturate(1.15);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 0;
+}
+
+.hero-bg-slide.previous {
+  opacity: 1;
+  z-index: 1;
+  transform: scale(1);
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.hero-bg-slide.current {
+  opacity: 1;
+  z-index: 2;
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 40%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(90deg, #000 0%, #000 40%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-size: 300% 100%;
+  mask-size: 300% 100%;
+  animation: softWipeAcross 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes softWipeAcross {
+  0% {
+    opacity: 0;
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+    transform: scale(1.03);
+  }
+  25% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+    -webkit-mask-position: 0% 0;
+    mask-position: 0% 0;
+    transform: scale(1);
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 22, 54, 0.55) 0%,
+    rgba(9, 36, 78, 0.22) 32%,
+    rgba(6, 26, 62, 0.38) 68%,
+    rgba(3, 14, 36, 0.82) 100%
+  );
+  pointer-events: none;
+}
+
+/* Header / Navbar */
+.hero-header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(1rem, 2vh, 1.75rem) clamp(2rem, 3.5vw, 4rem);
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.hero-logo:hover {
+  opacity: 0.92;
+}
+
+.hero-logo-emblem {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(220, 175, 60, 0.35));
+}
+
+.hero-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.hero-nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s ease, transform 0.2s ease;
+  position: relative;
+}
+
+.hero-nav-link:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+
+/* Main Content Area */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(2rem, 3.5vw, 4rem);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Upper Sub-Section */
+.hero-upper-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+/* Left: Avatar Stack */
+.hero-social-proof {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* smallicon: Social proof & 50K+ shipments badge - Hidden by request. To unhide, remove this rule or set display: flex */
+.smallicon {
+  display: none !important;
+}
+
+.avatar-stack {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-item {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  object-fit: cover;
+  margin-left: -12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.avatar-item:first-child {
+  margin-left: 0;
+}
+
+.avatar-item:hover {
+  transform: scale(1.1) translateY(-2px);
+  z-index: 5;
+}
+
+.social-proof-text {
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  max-width: 130px;
+}
+
+/* Right: Glass Card & Social Strip */
+.hero-upper-right {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.75rem;
+  margin-left: auto;
+}
+
+.glass-info-card {
+  width: 295px;
+  padding: 1.25rem 1.35rem;
+  border-radius: 16px;
+  background: rgba(14, 38, 76, 0.4);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(147, 197, 253, 0.3);
+  box-shadow: 0 8px 32px rgba(2, 10, 28, 0.35);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.glass-info-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.glass-info-desc {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.glass-info-link {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  margin-left: 4px;
+}
+
+/* Social Strip */
+.social-vertical-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.social-icon-btn {
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  width: 24px;
+  height: 24px;
+}
+
+.social-icon-btn:hover {
+  color: #ffffff;
+  transform: scale(1.15);
+}
+
+/* Center Headline */
+.hero-center-row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto 0;
+  padding: 1.25rem 0;
+}
+
+.hero-main-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.8rem, 6.2vw, 5.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-title-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35em;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Pill Badges in Title */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #0f172a;
+  padding: 0.04em 0.45em;
+  border-radius: 9999px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.28);
+  line-height: 1.1;
+  transform: translateY(-0.02em);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pill-badge:hover {
+  transform: translateY(-0.08em) scale(1.02);
+}
+
+.pill-badge.accent {
+  color: #c25e2e;
+}
+
+/* Bottom Row */
+.hero-bottom-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(1rem, 2.5vh, 2.25rem);
+}
+
+/* Facilities Section */
+.facilities-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.facilities-heading {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.facilities-tags-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.facilities-tags-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.facility-chip {
+  padding: 0.5rem 1.35rem;
+  border-radius: 9999px;
+  background: rgba(8, 26, 54, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(147, 197, 253, 0.25);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.facility-chip:hover {
+  background: rgba(28, 64, 115, 0.65);
+  border-color: rgba(147, 197, 253, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Consultation & Note Section */
+.hero-bottom-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  max-width: 600px;
+  width: 100%;
+  gap: 0.85rem;
+}
+
+/* Mobile Navigation Toggle */
+.mobile-nav-toggle {
+  display: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .hero-header {
+    padding: 1.5rem 2rem;
+  }
+
+  .hero-content {
+    padding: 0 2rem;
+  }
+
+  .hero-nav-links {
+    gap: 1.5rem;
+  }
+
+  .hero-bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.75rem;
+  }
+
+  .hero-bottom-right {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-wrapper {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    max-height: none;
+    overflow: visible;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-header {
+    padding: 1.15rem 1.25rem;
+  }
+
+  .hero-content {
+    padding: 0 1.25rem;
+    gap: 2rem;
+    justify-content: flex-start;
+  }
+
+  .hero-nav,
+  .hero-nav-links {
+    display: none;
+  }
+
+  .hero-upper-row {
+    flex-direction: column-reverse;
+    gap: 1.25rem;
+    margin-top: 0.5rem;
+  }
+
+  .hero-upper-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .glass-info-card {
+    width: 100%;
+    padding: 1.15rem 1.25rem;
+  }
+
+  .social-vertical-strip {
+    flex-direction: row;
+    padding-top: 0;
+  }
+
+  .hero-center-row {
+    padding: 1.5rem 0;
+    margin: 0;
+  }
+
+  .hero-main-title {
+    font-size: clamp(2rem, 7.5vw, 2.9rem);
+    line-height: 1.2;
+  }
+
+  .hero-title-line {
+    gap: 0.25em;
+  }
+
+  .pill-badge {
+    padding: 0.04em 0.38em;
+    font-size: 0.95em;
+  }
+
+  .hero-bottom-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .facilities-container {
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .facilities-heading {
+    font-size: 0.95rem;
+  }
+
+  .facilities-tags-row {
+    gap: 0.5rem;
+  }
+
+  .facility-chip {
+    padding: 0.45rem 1rem;
+    font-size: 0.78rem;
+  }
+
+  .hero-bottom-right {
+    max-width: 100%;
+    width: 100%;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-header {
+    padding: 1rem 1rem;
+  }
+
+  .hero-content {
+    padding: 0 1rem;
+    gap: 1.75rem;
+  }
+
+  .hero-main-title {
+    font-size: clamp(1.8rem, 8vw, 2.35rem);
+  }
+
+  .facility-chip {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
