@@ -57,9 +57,55 @@ The compiled static assets will be output in the `dist/` directory.
 
 ---
 
-## 🚀 Deployment on aaPanel (VPS)
+## 🚀 Deployment on aaPanel (VPS: 189.31.39.166)
 
-### Method 1: Nginx (Frontend) + aaPanel Node Project / PM2 (Backend) [Recommended]
+### Method 1: All-in-One Node.js Project [Recommended for "Node.js Project" Tab]
+
+In this method, aaPanel's Node.js project manager runs the Express server (port 5000), which automatically serves the compiled Vite frontend (`dist/`) and all `/api` endpoints with built-in reverse proxy.
+
+#### 1. Server Prerequisites
+1. In aaPanel, go to **Website** > **Node.js Project** > click **Node version manager**.
+2. Install **Node.js v20.x** (or LTS) and set it as the CLI version.
+3. In aaPanel **App Store**, ensure **Nginx** and **MongoDB** are installed and running.
+
+#### 2. Clone and Build Code on VPS
+Open **Terminal** in aaPanel (or SSH into your VPS):
+```bash
+cd /www/wwwroot
+git clone https://github.com/itanienterprise/anienterprise-web.git
+cd anienterprise-web
+npm install
+npm run build
+```
+
+Configure `.env`:
+```bash
+cp .env.example .env
+```
+Ensure your `.env` contains:
+```env
+PORT=5000
+MONGODB_URI=mongodb://127.0.0.1:27017/anienterprise
+```
+
+#### 3. Add Project in aaPanel "Node.js Project" Tab
+1. Go to **Website** > **Node.js Project** > Click **Add Project**.
+2. Fill in:
+   - **Path**: `/www/wwwroot/anienterprise-web`
+   - **Name**: `anienterprise`
+   - **Run Opt**: `start` (or Run file: `server/index.js`)
+   - **Port**: `5000`
+   - **Run User**: `www`
+   - **Node Version**: Select your installed Node.js 20.x
+   - **Domain**: Add `anienterprises.com.bd` and `www.anienterprises.com.bd`
+3. Click **Submit**.
+4. Test your site at `https://anienterprises.com.bd` and API at `https://anienterprises.com.bd/api/health`.
+
+---
+
+### Method 2: Nginx (Frontend) + aaPanel Node Project / PM2 (Backend)
+
+If you prefer Nginx directly serving static assets:
 
 #### 1. Setup in aaPanel
 1. Install **Nginx** and **Node.js Version Manager** (Node 20+) from aaPanel **App Store**.

@@ -3,9 +3,16 @@ import cors from 'cors'
 import compression from 'compression'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
+import path from 'path'
+import fs from 'fs'
+import { fileURLToPath } from 'url'
 import { connectDB } from './db.js'
 
 dotenv.config()
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const distPath = path.join(__dirname, '..', 'dist')
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -31,6 +38,17 @@ app.get('/api/health', (req, res) => {
     timestamp: new Date().toISOString(),
   })
 })
+
+// Serve built frontend assets in production (when dist exists)
+if (fs.existsSync(distPath)) {
+  app.use(express.static(distPath))
+  app.use((req, res, next) => {
+    if (req.method === 'GET' && !req.path.startsWith('/api')) {
+      return res.sendFile(path.join(distPath, 'index.html'))
+    }
+    next()
+  })
+}
 
 // Start server on 0.0.0.0 so network mode works for backend as well
 app.listen(PORT, '0.0.0.0', () => {
