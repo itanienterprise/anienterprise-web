@@ -89,71 +89,6 @@
   pointer-events: none;
 }
 
-/* Header / Navbar */
-.hero-header {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: clamp(1rem, 2vh, 1.75rem) clamp(2rem, 3.5vw, 4rem);
-  max-width: 1920px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.hero-logo {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.75rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: #ffffff;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.hero-logo:hover {
-  opacity: 0.92;
-}
-
-.hero-logo-emblem {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 6px rgba(220, 175, 60, 0.35));
-}
-
-.hero-nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.hero-nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-  list-style: none;
-}
-
-.hero-nav-link {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
-  transition: color 0.2s ease, transform 0.2s ease;
-  position: relative;
-}
-
-.hero-nav-link:hover {
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-
-
 /* Main Content Area */
 .hero-content {
   position: relative;
@@ -408,13 +343,6 @@
   gap: 0.85rem;
 }
 
-/* Mobile Navigation Toggle */
-.mobile-nav-toggle {
-  display: none;
-  color: #ffffff;
-  font-size: 1.5rem;
-}
-
 /* Responsive Breakpoints */
 @media (max-width: 1024px) {
   .hero-wrapper {
@@ -425,16 +353,8 @@
     overflow: visible;
   }
 
-  .hero-header {
-    padding: 1.5rem 2rem;
-  }
-
   .hero-content {
     padding: 0 2rem;
-  }
-
-  .hero-nav-links {
-    gap: 1.5rem;
   }
 
   .hero-bottom-row {
@@ -459,19 +379,10 @@
     padding-bottom: 2.5rem;
   }
 
-  .hero-header {
-    padding: 1.15rem 1.25rem;
-  }
-
   .hero-content {
     padding: 0 1.25rem;
     gap: 2rem;
     justify-content: flex-start;
-  }
-
-  .hero-nav,
-  .hero-nav-links {
-    display: none;
   }
 
   .hero-upper-row {
@@ -547,10 +458,6 @@
 }
 
 @media (max-width: 480px) {
-  .hero-header {
-    padding: 1rem 1rem;
-  }
-
   .hero-content {
     padding: 0 1rem;
     gap: 1.75rem;
