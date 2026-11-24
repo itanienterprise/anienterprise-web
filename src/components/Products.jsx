@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { COMMODITY_PRODUCTS } from '../data/productsData'
 import './Products.css'
@@ -25,6 +25,28 @@ export default function Products() {
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev - 1 + COMMODITY_PRODUCTS.length) % COMMODITY_PRODUCTS.length)
+  }
+
+  // Swipe handling for mobile card navigation
+  const touchStartX = useRef(0)
+  const touchStartY = useRef(0)
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX
+    touchStartY.current = e.touches[0].clientY
+  }
+
+  const handleTouchEnd = (e) => {
+    const diffX = touchStartX.current - e.changedTouches[0].clientX
+    const diffY = touchStartY.current - e.changedTouches[0].clientY
+    // Trigger if horizontal swipe is intentional without locking vertical scrolling
+    if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY) * 1.3) {
+      if (diffX > 0) {
+        handleNext()
+      } else {
+        handlePrev()
+      }
+    }
   }
 
   // Close catalog modal on ESC key
@@ -86,7 +108,11 @@ export default function Products() {
         </div>
 
         {/* The Arched / Fan Cards Arena */}
-        <div className="products-fan-arena">
+        <div
+          className="products-fan-arena"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           <div className="cards-arc-wrapper">
             {COMMODITY_PRODUCTS.map((card, index) => {
               const count = COMMODITY_PRODUCTS.length
@@ -107,6 +133,7 @@ export default function Products() {
                 <div
                   key={card.id}
                   className={`arc-card-item ${isVisible ? 'card-visible' : 'card-hidden-offscreen'}`}
+                  onClick={() => isVisible && setActiveIndex(index)}
                   style={{
                     '--rot': `${rot}deg`,
                     '--x': `${x}px`,
@@ -116,6 +143,7 @@ export default function Products() {
                     '--shadow-color': card.shadowColor,
                     '--card-opacity': isVisible ? 1 : 0,
                     pointerEvents: isVisible ? 'auto' : 'none',
+                    cursor: isVisible ? 'pointer' : 'default',
                   }}
                   aria-label={`${card.name} - ${card.spec}`}
                 >

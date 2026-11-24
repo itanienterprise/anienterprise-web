@@ -94,7 +94,7 @@ export default function Contact() {
             <h3 className="channel-label">Trade Hotline</h3>
             <div className="channel-val">
               <a href="tel:+8802588813057">+88 02588813057</a>
-              <a href="tel:+8801713706160">+8801713 706160</a>
+              <a href="tel:+8801334768700">+8801334768700</a>
             </div>
           </div>
 

@@ -17,6 +17,17 @@ const SECTIONS = [
   { id: 'contact', label: 'Contact' }, // Handled by Footer at the bottom
 ]
 
+// Helper to detect mobile / tablet mode
+const isMobileMode = () => {
+  if (typeof window === 'undefined') return false
+  const width = window.visualViewport?.width || window.innerWidth
+  return (
+    width <= 1024 ||
+    window.innerWidth <= 1024 ||
+    (window.matchMedia && window.matchMedia('(max-width: 1024px)').matches)
+  )
+}
+
 export default function Home() {
   const isAnimating = useRef(false)
   const lastTransitionTime = useRef(0)
@@ -85,6 +96,11 @@ export default function Home() {
   // Mouse wheel scroll listener
   useEffect(() => {
     const handleWheel = (e) => {
+      // In mobile mode only: allow natural continuous scrolling, no section lock
+      if (isMobileMode()) {
+        return
+      }
+
       // Don't intercept scroll inside modals or interactive overlays
       if (
         e.target.closest(
@@ -131,8 +147,8 @@ export default function Home() {
     }
 
     const handleTouchStart = (e) => {
-      // Allow natural touch scrolling on mobile / tablet screens
-      if (window.innerWidth <= 1024) return
+      // In mobile mode or on touch screens: allow natural touch scrolling
+      if (isMobileMode() || 'ontouchstart' in window || navigator.maxTouchPoints > 0) return
 
       if (
         e.target.closest(
@@ -145,8 +161,8 @@ export default function Home() {
     }
 
     const handleTouchEnd = (e) => {
-      // Allow natural touch scrolling on mobile / tablet screens
-      if (window.innerWidth <= 1024) return
+      // In mobile mode or on touch screens: allow natural touch scrolling
+      if (isMobileMode() || 'ontouchstart' in window || navigator.maxTouchPoints > 0) return
 
       if (
         e.target.closest(
@@ -171,6 +187,9 @@ export default function Home() {
     }
 
     const handleKeyDown = (e) => {
+      // In mobile mode only: allow natural keyboard scrolling
+      if (isMobileMode()) return
+
       if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return
       if (document.querySelector('.products-catalog-modal-overlay')) return
 

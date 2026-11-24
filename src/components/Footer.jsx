@@ -125,8 +125,8 @@ export default function Footer() {
                   <a href="tel:+8802588813057" className="footer-contact-link">
                     +88 02588813057
                   </a>
-                  <a href="tel:+8801713706160" className="footer-contact-link">
-                    +8801713 706160
+                  <a href="tel:+8801334768700" className="footer-contact-link">
+                    +8801334768700
                   </a>
                 </div>
               </div>

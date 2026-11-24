@@ -417,6 +417,14 @@
 
 /* Responsive Breakpoints */
 @media (max-width: 1024px) {
+  .hero-wrapper {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    max-height: none;
+    overflow: visible;
+  }
+
   .hero-header {
     padding: 1.5rem 2rem;
   }

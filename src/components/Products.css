@@ -528,9 +528,9 @@
 
 @media (max-width: 880px) {
   .cards-arc-wrapper {
-    transform: scale(0.70);
+    transform: scale(0.85);
     transform-origin: top center;
-    height: 205px;
+    height: 275px;
     margin-bottom: 0;
   }
 }
@@ -559,9 +559,9 @@
   }
 
   .cards-arc-wrapper {
-    transform: scale(0.55);
+    transform: scale(0.82);
     transform-origin: top center;
-    height: 165px;
+    height: 265px;
     margin-bottom: 0;
   }
 
@@ -586,14 +586,23 @@
   }
 
   .cards-arc-wrapper {
-    transform: scale(0.48);
+    transform: scale(0.80);
     transform-origin: top center;
-    height: 140px;
+    height: 260px;
     margin-bottom: 0;
   }
 
   .arc-big-metric {
     font-size: 2.15rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .cards-arc-wrapper {
+    transform: scale(0.74);
+    transform-origin: top center;
+    height: 240px;
+    margin-bottom: 0;
   }
 }
 

@@ -146,7 +146,7 @@ export default function Navbar({ variant = 'transparent' }) {
               <span className="mobile-info-label">Head Office:</span>
               <p className="mobile-info-text">Borogola, Bogura, Bangladesh</p>
             </div>
-            <a href="tel:+8801713706160" className="mobile-drawer-cta">
+            <a href="tel:+8801334768700" className="mobile-drawer-cta">
               <svg
                 width="16"
                 height="16"
